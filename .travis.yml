@@ -19,7 +19,7 @@ after_success:
       mvn deploy --settings ~/settings.xml  -DskipTests;
     fi
   - if [[ "$TRAVIS_BRANCH" == "releases" ]]; then
-      mvn release:prepare release:perform --settings ~/settings.xml  -DskipTests -Darguments="-Dmaven.test.skip=true -DskipTests";
+      mvn release:prepare release:perform --settings ~/settings.xml  -DskipTests -Darguments="-Dmaven.test.skip=true";
     fi
 env:
   global:
