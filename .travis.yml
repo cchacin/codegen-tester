@@ -3,8 +3,8 @@ jdk:
   - oraclejdk8
 #  - oraclejdk9
 before_script:
-  - sudo apt-get -qq update > /dev/null
-  - sudo apt-get -qq install graphviz > /dev/null
+  - apt-get -qq update > /dev/null
+  - apt-get -qq install graphviz > /dev/null
   - chmod +x update-gh-pages.sh
 cache:
   directories:
@@ -19,7 +19,7 @@ after_success:
       mvn deploy --settings ~/settings.xml  -DskipTests;
     fi
   - if [[ "$TRAVIS_BRANCH" == "releases" ]]; then
-      mvn release:prepare release:perform --settings ~/settings.xml  -DskipTests -Darguments="-Dmaven.test.skip=true -DskipTests";
+      mvn release:prepare release:perform --settings ~/settings.xml  -DskipTests -Darguments="-Dmaven.test.skip=true";
     fi
 env:
   global:
