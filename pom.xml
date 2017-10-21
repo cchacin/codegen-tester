@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>codegen-tester</artifactId>
+    <packaging>jar</packaging>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>com.github.cchacin</groupId>
+        <artifactId>basepom</artifactId>
+        <version>0.2.0</version>
+    </parent>
+
+    <name>Swagger Codegen Tester</name>
+    <description>Swagger Codegen Cucumber Tester</description>
+    <inceptionYear>2014</inceptionYear>
+    <url>https://github.com/cchacin/codegen-tester</url>
+
+    <scm>
+        <url>scm:git:git@github.com:cchacin/codegen-tester.git</url>
+        <connection>scm:git:git@github.com:cchacin/codegen-tester.git</connection>
+        <developerConnection>scm:git:git@github.com:cchacin/codegen-tester.git</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <!-- Version strings -->
+        <cukespace.version>1.6.1</cukespace.version>
+        <cucumber.version>1.2.4</cucumber.version>
+        <tomee.version>1.7.2</tomee.version>
+        <junit.version>4.12</junit.version>
+        <assertj.version>2.0.0</assertj.version>
+        <javaee.version>6.0-6</javaee.version>
+        <dbsetup.version>1.6.0</dbsetup.version>
+        <jsonunit.version>1.6.1</jsonunit.version>
+        <lombok.version>1.16.6</lombok.version>
+        <restassured.version>2.6.0</restassured.version>
+        <jedis.version>2.7.3</jedis.version>
+        <restito.version>0.7</restito.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>repo.bodar.com</id>
+            <url>http://repo.bodar.com</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- Travis CI -->
+        <profile>
+            <id>travis</id>
+
+            <activation>
+                <property>
+                    <name>env.TRAVIS</name>
+                    <value>true</value>
+                </property>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eluder.coveralls</groupId>
+                        <artifactId>coveralls-maven-plugin</artifactId>
+                        <version>4.0.0</version>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
