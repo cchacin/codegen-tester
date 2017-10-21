@@ -32,25 +32,12 @@
         <cucumber.version>2.0.1</cucumber.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>repo.bodar.com</id>
-            <url>http://repo.bodar.com</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-codegen</artifactId>
             <version>${swagger-codegen.version}</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.12</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
