@@ -20,10 +20,13 @@ public class Steps extends Assertions implements En, TemplateTest {
                     .execute(vars(codegenClass));
         });
 
+        // TODO remove the "\n"
         Then("^the result should be equals to the file \"([^\"]*)\"$",
-             (String expected) -> assertThat(fileContent(expected)).isEqualTo(generated));
+             (String expected) -> assertThat(fileContent(expected) + "\n").isEqualTo(generated));
 
-        Then("^the result should be equals to:$", (String expected) -> assertThat(generated).isEqualTo(expected));
+        // TODO remove the "\n"
+        Then("^the result should be equals to:$",
+            (String expected) -> assertThat(generated).isEqualTo(expected + "\n"));
         
         Then("^the result should contain:$", (String expected) -> assertThat(generated).contains(expected));
 

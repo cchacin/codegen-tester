@@ -1,11 +1,11 @@
 Feature: Models
 
   Scenario: Verify definitions
-    Given the following swagger file "2_0/petstore.json":
+    Given the following swagger file "petstore.json":
 
     When process the "Pet" definition with the "io.swagger.codegen.languages.JavaClientCodegen" codegen class
 
-#    Then the result should be equals to the file "fixtures/Pet.java"
+    Then the result should be equals to the file "fixtures/Pet.java"
     Then the result should contain:
       """
       package ???;
